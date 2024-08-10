@@ -4,16 +4,19 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.ts"
   },
   "author": "Rafael Silva-Vergara",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mongoose": "^8.5.2"
+    "mongoose": "^8.5.2",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.2.0",
     "nodemon": "^3.1.4",
     "typescript": "^5.5.4"
   }
