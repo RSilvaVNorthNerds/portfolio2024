@@ -1,10 +1,27 @@
 import express from 'express';
+import Database from './db/database';
+import Project from './db/schemas/projectsSchema';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
-const port = 3000;
+const db = new Database();
+const port = process.env.PORT || 3003;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+try {
+  db.connect();
+} catch (error) {
+  console.error('Could not connect to DB: ' + error);
+}
+
+app.get('/all-projects', async (req, res) => {
+  try {
+    const projects = await Project.find({});
+    res.send(JSON.stringify(projects));
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 app.listen(port, () => {
