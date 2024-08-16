@@ -19,6 +19,8 @@ app.get('/all-projects', async (req, res) => {
   try {
     const projects = await Project.find({});
     res.send(JSON.stringify(projects));
+
+
   } catch (error) {
     res.status(500).send(error);
   }
