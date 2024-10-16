@@ -2,6 +2,7 @@ import express from 'express';
 import Database from './db/database';
 import Project from './db/schemas/projectsSchema';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ try {
 } catch (error) {
   console.error('Could not connect to DB: ' + error);
 }
+
+app.use(cors())
 
 app.get('/all-projects', async (req, res) => {
   try {
