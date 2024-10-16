@@ -15,7 +15,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <Box
         sx={{
-          width: "100vw",
+          width: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import contactStyles from "../contactStyles";
 import { ChangeEvent, FormEvent, useState } from "react";
 
@@ -8,15 +8,27 @@ export default function ContactForm() {
     email: "",
     message: "",
   });
+  const [formResponse, setFormResponse] = useState<string>("");
 
   const handleSubmitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:3003/contact-me").then(
-      (res) => res.json()
-    );
+    try {
+      const response = await fetch("http://localhost:3003/contact-me", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }).then((res) => res.json());
 
-    console.error(response);
+      setFormResponse(response.message);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setFormResponse(
+        "An error occurred while submitting the form. Please try again later."
+      );
+    }
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -65,6 +77,7 @@ export default function ContactForm() {
           Submit
         </Button>
       </form>
+      {formResponse != "" && <Typography>{formResponse}</Typography>}
     </Box>
   );
 }
