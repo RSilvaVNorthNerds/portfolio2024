@@ -29,7 +29,9 @@ export default function ProjectShowcase() {
 
   return (
     <Box>
-      <Typography variant="h3">Projects:</Typography>
+      <Typography variant="h3" sx={{ margin: "3rem 0px" }}>
+        Projects:
+      </Typography>
       <Grid container sx={projectShowcaseStyles.projectContainer}>
         {projects.map((project) => (
           <Grid xs={12} lg={3} xl={4}>

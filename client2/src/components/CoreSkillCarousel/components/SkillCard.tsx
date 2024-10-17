@@ -1,23 +1,36 @@
 import { Box, Typography } from "@mui/material";
 
 export interface SkillCardProps {
-  skill: string;
+  name: string;
+  yearsOfExperience: number;
+  logo: string;
 }
 
-export default function SkillCard({ skill }: SkillCardProps) {
+export default function SkillCard({
+  name,
+  yearsOfExperience,
+  logo,
+}: SkillCardProps) {
   return (
     <Box
       sx={{
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        width: "6rem",
-        height: "3rem",
         backgroundColor: "grey",
         borderRadius: "5px",
+        padding: "1em",
+        marginRight: "1em",
       }}
     >
-      <Typography variant="body2">{skill}</Typography>
+      <Box>
+        <img src={`${logo}`} alt="skill logo" />
+        <Typography variant="body1">{name}</Typography>
+      </Box>
+      <Typography variant="body2">
+        Years of Experience: {yearsOfExperience}
+      </Typography>
     </Box>
   );
 }

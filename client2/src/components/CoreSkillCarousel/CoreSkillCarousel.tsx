@@ -1,12 +1,34 @@
 import { Box, Typography } from "@mui/material";
 import SkillCard from "./components/SkillCard";
+import { useEffect, useState } from "react";
+
+type GetAllSkillsResponse = {
+  name: string;
+  yearsOfExperience: number;
+  logo: string;
+};
 
 export default function CoreSkillCarousel() {
+  const [skills, setSkills] = useState<GetAllSkillsResponse[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3003/get-skills", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.error(data);
+        setSkills(data);
+      });
+  }, []);
+
   return (
     <Box
       sx={{
         width: "100%",
-        height: "80px",
         backgroundColor: "darkgrey",
         display: "flex",
         flexDirection: "column",
@@ -16,7 +38,13 @@ export default function CoreSkillCarousel() {
     >
       <Typography variant="h6">Core Skills:</Typography>
       <Box sx={{ display: "flex" }}>
-        <SkillCard skill="React" />
+        {skills.map((skill) => (
+          <SkillCard
+            name={skill.name}
+            yearsOfExperience={skill.yearsOfExperience}
+            logo={skill.logo}
+          />
+        ))}
       </Box>
     </Box>
   );

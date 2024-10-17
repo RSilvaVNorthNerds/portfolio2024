@@ -3,6 +3,7 @@ import Database from './db/database';
 import Project from './db/schemas/projectsSchema';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import Skills from './db/schemas/skillsSchema';
 
 dotenv.config();
 
@@ -23,6 +24,15 @@ app.get('/all-projects', async (req, res) => {
   try {
     const projects = await Project.find({});
     res.send(JSON.stringify(projects));
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+app.get('/get-skills', async (req, res) => {
+  try {
+    const skills = await Skills.find({});
+    res.send(JSON.stringify(skills));
   } catch (error) {
     res.status(500).send(error);
   }
