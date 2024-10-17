@@ -24,11 +24,18 @@ export default function SkillCard({
         marginRight: "1em",
       }}
     >
-      <Box>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
         <img src={`${logo}`} alt="skill logo" />
         <Typography variant="body1">{name}</Typography>
       </Box>
-      <Typography variant="body2">
+      <Typography variant="subtitle2">
         Years of Experience: {yearsOfExperience}
       </Typography>
     </Box>
