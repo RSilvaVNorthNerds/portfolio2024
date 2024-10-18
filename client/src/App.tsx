@@ -1,6 +1,6 @@
 import Navigation from "./components/Navigation/Navigation";
 import Banner from "./components/Banner/Banner";
-import CoreSkillCarousel from "./components/CoreSkillCarousel/CoreSkillCarousel";
+import CoreSkillCarousel from "./components/CoreSkillCarousel/CoreSkills";
 import ProjectShowcase from "./components/ProjectShowcase/ProjectShowcase";
 import Contact from "./components/Contact/Contact";
 import { Box, createTheme, ThemeProvider } from "@mui/material";
