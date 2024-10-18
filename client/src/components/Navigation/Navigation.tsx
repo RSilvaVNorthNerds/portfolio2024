@@ -14,15 +14,15 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 
-const pages = ["Products", "Pricing", "Blog"];
+const sections = ["Projects", "Publications", "Contact"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null,
+    null
   );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null,
+    null
   );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -101,9 +101,9 @@ function Navigation() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {sections.map((section) => (
+                <MenuItem key={section} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{section}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -128,13 +128,13 @@ function Navigation() {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {sections.map((section) => (
               <Button
-                key={page}
+                key={section}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {section}
               </Button>
             ))}
           </Box>
