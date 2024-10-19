@@ -1,9 +1,10 @@
 import Navigation from "./components/Navigation/Navigation";
 import Banner from "./components/Banner/Banner";
-import CoreSkillCarousel from "./components/CoreSkillCarousel/CoreSkills";
 import ProjectShowcase from "./components/ProjectShowcase/ProjectShowcase";
 import Contact from "./components/Contact/Contact";
 import { Box, createTheme, ThemeProvider } from "@mui/material";
+import CoreSkills from "./components/CoreSkillCarousel/CoreSkills";
+import Publications from "./components/Publications/Publications";
 
 function App() {
   const darkTheme = createTheme({
@@ -23,8 +24,9 @@ function App() {
       >
         <Navigation />
         <Banner />
-        <CoreSkillCarousel />
+        <CoreSkills />
         <ProjectShowcase />
+        <Publications />
         <Contact />
       </Box>
     </ThemeProvider>

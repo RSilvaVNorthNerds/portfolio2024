@@ -20,7 +20,6 @@ export default function CoreSkills() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.error(data);
         setSkills(data);
       });
   }, []);

@@ -4,6 +4,7 @@ import Project from './db/schemas/projectsSchema';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import Skills from './db/schemas/skillsSchema';
+import parse from 'rss-to-json'
 
 dotenv.config();
 
@@ -33,6 +34,16 @@ app.get('/get-skills', async (req, res) => {
   try {
     const skills = await Skills.find({});
     res.send(JSON.stringify(skills));
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+app.get('/get-publications', async (req, res) => {
+  try {
+    const data = await parse('https://medium.com/feed/@rafael-silva-vergara-dev')
+
+    res.send(JSON.stringify(data.items));
   } catch (error) {
     res.status(500).send(error);
   }

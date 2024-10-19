@@ -22,7 +22,6 @@ export default function ProjectShowcase() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.error(data);
         setProjects(data);
       });
   }, []);
