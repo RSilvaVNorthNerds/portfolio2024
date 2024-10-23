@@ -1,7 +1,19 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Download, Visibility } from "@mui/icons-material";
+import ResumeViewerModal from "./components/ResumeViewerModal";
+import { useState } from "react";
 
 const Banner = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOnClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <Box
       paddingTop="70px"
@@ -79,7 +91,7 @@ const Banner = () => {
               Download Resume
             </Button>
             |
-            <Button variant="outlined" size="large">
+            <Button variant="outlined" size="large" onClick={handleModalOpen}>
               <Visibility sx={{ marginRight: "10px" }} />
               View Resume
             </Button>
@@ -97,6 +109,7 @@ const Banner = () => {
           src="/profile-pic.jpg"
         />
       </Box>
+      <ResumeViewerModal isOpen={isModalOpen} onClose={handleModalOnClose} />
     </Box>
   );
 };
