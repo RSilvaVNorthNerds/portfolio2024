@@ -12,6 +12,7 @@ const Banner = () => {
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
+        gap: 2,
       }}
     >
       <Box>
@@ -36,7 +37,7 @@ const Banner = () => {
           </Typography>
         </Box>
         <Typography variant="subtitle2">
-          As a seasoned Full-Stack Developer with many years of professional
+          As a seasoned Full-Stack Developer with over 4 years of professional
           experience, I bring a wealth of knowledge in computer science and a
           diverse skill set to the table. My expertise spans across various
           programming languages such as JavaScript, Python, and PHP, and I am
@@ -45,23 +46,44 @@ const Banner = () => {
           front-end and back-end development, allowing me to manage the entire
           development process seamlessly.
         </Typography>
-        <Typography variant="h6" sx={{ fontSize: "1em", fontWeight: 600 }}>
-          View My Resume:
-        </Typography>
-        <Box>
-          <Button
-            href="../../assets/Rafael-Silva-Vergara-Resume.docx"
-            download="Rafael-Silva-Vergara-Resume.docx"
-            variant="outlined"
-            size="large"
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "3em 1em",
+          }}
+        >
+          <Typography
+            variant="h5"
+            sx={{ fontSize: "1em", fontWeight: 600, marginBottom: "2em" }}
           >
-            <Download sx={{ marginRight: "10px" }} />
-            Download Resume
-          </Button>
-          <Button variant="outlined" size="large">
-            <Visibility sx={{ marginRight: "10px" }} />
-            View Resume
-          </Button>
+            View My Resume
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "1em",
+            }}
+          >
+            <Button
+              href="../../assets/Rafael-Silva-Vergara-Resume.docx"
+              download="Rafael-Silva-Vergara-Resume.docx"
+              variant="outlined"
+              size="large"
+            >
+              <Download sx={{ marginRight: "10px" }} />
+              Download Resume
+            </Button>
+            |
+            <Button variant="outlined" size="large">
+              <Visibility sx={{ marginRight: "10px" }} />
+              View Resume
+            </Button>
+          </Box>
         </Box>
       </Box>
       <Box>

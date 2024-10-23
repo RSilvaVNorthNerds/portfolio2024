@@ -7,7 +7,7 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 
 const sections = ["Projects", "Skills", "Publications", "Contact"];
 
@@ -37,9 +37,22 @@ function Navigation() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img style={{ width: "4rem" }} src="logo.png" alt="Portfolio Logo" />
+          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <img
+              style={{ width: "4rem" }}
+              src="logo.png"
+              alt="Portfolio Logo"
+            />
+            <Typography variant="h5">Rafael Silva-Vergara</Typography>
+          </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              justifyContent: "flex-end",
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -77,7 +90,13 @@ function Navigation() {
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-end",
+            }}
+          >
             {sections.map((section) => (
               <Link
                 key={section}

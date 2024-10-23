@@ -32,7 +32,7 @@ export default function SkillCard({
           justifyContent: "space-evenly",
         }}
       >
-        <img src={`${logo}`} alt="skill logo" />
+        <img src={`${logo}`} style={{ maxWidth: "2em" }} alt="skill logo" />
         <Typography variant="body1">{name}</Typography>
       </Box>
       <Typography variant="subtitle2">
