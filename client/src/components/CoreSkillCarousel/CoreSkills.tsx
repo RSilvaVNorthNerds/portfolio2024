@@ -6,7 +6,18 @@ type GetAllSkillsResponse = {
   name: string;
   yearsOfExperience: number;
   logo: string;
+  type: SkillType;
 };
+
+type SkillType =
+  | "language"
+  | "library"
+  | "framework"
+  | "dev-tool"
+  | "testing"
+  | "design"
+  | "cloud-tool"
+  | "database";
 
 export default function CoreSkills() {
   const [skills, setSkills] = useState<GetAllSkillsResponse[]>([]);
@@ -23,6 +34,11 @@ export default function CoreSkills() {
         setSkills(data);
       });
   }, []);
+
+  // TODO: refactor this filtering logic
+  const getFilteredSkills = (type: SkillType[]) => {
+    return skills.filter((skill) => type.includes(skill.type));
+  };
 
   return (
     <Box
@@ -68,7 +84,7 @@ export default function CoreSkills() {
         <Grid>
           <Typography variant="h6">Languages:</Typography>
           <Box sx={{ display: "flex" }}>
-            {skills.map((skill) => (
+            {getFilteredSkills(["language"]).map((skill) => (
               <SkillCard
                 name={skill.name}
                 yearsOfExperience={skill.yearsOfExperience}
@@ -80,7 +96,7 @@ export default function CoreSkills() {
         <Grid>
           <Typography variant="h6">Libraries & Frameworks:</Typography>
           <Box sx={{ display: "flex" }}>
-            {skills.map((skill) => (
+            {getFilteredSkills(["framework", "library"]).map((skill) => (
               <SkillCard
                 name={skill.name}
                 yearsOfExperience={skill.yearsOfExperience}
@@ -92,7 +108,7 @@ export default function CoreSkills() {
         <Grid>
           <Typography variant="h6">Dev Tools & Cloud:</Typography>
           <Box sx={{ display: "flex" }}>
-            {skills.map((skill) => (
+            {getFilteredSkills(["dev-tool", "cloud-tool"]).map((skill) => (
               <SkillCard
                 name={skill.name}
                 yearsOfExperience={skill.yearsOfExperience}
@@ -104,7 +120,7 @@ export default function CoreSkills() {
         <Grid>
           <Typography variant="h6">Testing Frameworks & Tools</Typography>
           <Box sx={{ display: "flex" }}>
-            {skills.map((skill) => (
+            {getFilteredSkills(["testing"]).map((skill) => (
               <SkillCard
                 name={skill.name}
                 yearsOfExperience={skill.yearsOfExperience}
@@ -116,7 +132,19 @@ export default function CoreSkills() {
         <Grid>
           <Typography variant="h6">UI/UX Design</Typography>
           <Box sx={{ display: "flex" }}>
-            {skills.map((skill) => (
+            {getFilteredSkills(["design"]).map((skill) => (
+              <SkillCard
+                name={skill.name}
+                yearsOfExperience={skill.yearsOfExperience}
+                logo={skill.logo}
+              />
+            ))}
+          </Box>
+        </Grid>
+        <Grid>
+          <Typography variant="h6">Databases</Typography>
+          <Box sx={{ display: "flex" }}>
+            {getFilteredSkills(["database"]).map((skill) => (
               <SkillCard
                 name={skill.name}
                 yearsOfExperience={skill.yearsOfExperience}
