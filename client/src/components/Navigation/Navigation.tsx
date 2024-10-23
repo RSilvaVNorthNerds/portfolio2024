@@ -3,14 +3,13 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import { Link } from "@mui/material";
 
-const sections = ["Projects", "Publications", "Contact"];
+const sections = ["Projects", "Skills", "Publications", "Contact"];
 
 function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -71,20 +70,22 @@ function Navigation() {
             >
               {sections.map((section) => (
                 <MenuItem key={section} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{section}</Typography>
+                  <Link href={"#" + section.toLowerCase()} textAlign="center">
+                    {section}
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {sections.map((section) => (
-              <Button
+              <Link
                 key={section}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                href={"#" + section.toLowerCase()}
+                sx={{ margin: 2, color: "white", display: "block" }}
               >
                 {section}
-              </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>

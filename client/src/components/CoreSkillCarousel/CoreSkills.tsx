@@ -26,6 +26,7 @@ export default function CoreSkills() {
 
   return (
     <Box
+      id="skills"
       sx={{
         width: "100%",
         backgroundColor: "darkgrey",
@@ -34,9 +35,28 @@ export default function CoreSkills() {
         justifyContent: "center",
         alignItems: "center",
         padding: "4rem 1rem",
+        position: "relative",
       }}
     >
-      <Typography variant="h3">Skills</Typography>
+      <Typography
+        variant="h3"
+        sx={{
+          width: "fit-content",
+          zIndex: 1,
+          "::after": {
+            content: '""',
+            display: "block",
+            width: "55%",
+            height: "20px",
+            backgroundColor: "#2E409A",
+            transform: "translateX(100%) translateY(-110%)",
+            position: "relative",
+            zIndex: -1,
+          },
+        }}
+      >
+        Skills
+      </Typography>
       <Grid
         container
         sx={{

@@ -25,7 +25,7 @@ const Banner = () => {
                 display: "block",
                 width: "55%",
                 height: "20px",
-                backgroundColor: "lightgrey",
+                backgroundColor: "#2E409A",
                 transform: "translateX(100%) translateY(-110%)",
                 position: "relative",
                 zIndex: -1,

@@ -27,9 +27,25 @@ export default function ProjectShowcase() {
   }, []);
 
   return (
-    <Box>
-      <Typography variant="h3" sx={{ margin: "3rem 0px" }}>
-        Projects:
+    <Box id="projects">
+      <Typography
+        variant="h3"
+        sx={{
+          margin: "3rem 0px",
+          width: "fit-content",
+          "::after": {
+            content: '""',
+            display: "block",
+            width: "55%",
+            height: "20px",
+            backgroundColor: "#2E409A",
+            transform: "translateX(100%) translateY(-110%)",
+            position: "relative",
+            zIndex: -1,
+          },
+        }}
+      >
+        Projects
       </Typography>
       <Grid container sx={projectShowcaseStyles.projectContainer}>
         {projects.map((project) => (
