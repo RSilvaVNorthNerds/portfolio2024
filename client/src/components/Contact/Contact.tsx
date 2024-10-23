@@ -29,7 +29,7 @@ export default function Contact() {
           },
         }}
       >
-        Contact
+        Let's Connect!
       </Typography>
       <Box sx={{ display: "flex" }}>
         <ContactForm />

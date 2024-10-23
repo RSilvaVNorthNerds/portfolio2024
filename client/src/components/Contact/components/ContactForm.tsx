@@ -39,7 +39,7 @@ export default function ContactForm() {
   return (
     <Box>
       <form onSubmit={handleSubmitForm} style={contactStyles.form}>
-        <Box>
+        <Box sx={{ display: "flex", gap: 2 }}>
           <TextField
             sx={{ input: contactStyles.contactInput }}
             id="name"

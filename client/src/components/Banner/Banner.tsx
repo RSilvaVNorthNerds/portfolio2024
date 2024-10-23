@@ -87,7 +87,15 @@ const Banner = () => {
         </Box>
       </Box>
       <Box>
-        <img src="/dev.jpg" />
+        <img
+          style={{
+            width: "30rem",
+            height: "30rem",
+            objectFit: "cover",
+            borderRadius: "10px",
+          }}
+          src="/profile-pic.jpg"
+        />
       </Box>
     </Box>
   );
