@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import Skills from './db/schemas/skillsSchema';
 import parse from 'rss-to-json'
+import Mailer from './Mailer/Mailer';
 
 dotenv.config();
 
@@ -53,6 +54,9 @@ app.post('/contact-me', async (req, res) => {
   const {name} = req.body;
 
   try {
+    const mailer = new Mailer();
+
+    mailer.sendEmail();
     res.send({message: `Thank You ${name}! Your request has been received!`});
   } catch (error) {
     res.status(500).send(error);
