@@ -32,7 +32,7 @@ export default function PublicationCard({
     >
       <img
         style={{ width: "20rem", borderRadius: "20px 0px 0px 20px" }}
-        src="dev.jpg"
+        src="images/dev.jpg"
         alt="Project Preview"
       />
       <Box

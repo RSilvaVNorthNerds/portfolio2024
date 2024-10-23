@@ -26,7 +26,7 @@ export default function ProjectCard({
     >
       <img
         style={{ width: "100%", borderRadius: "20px 20px 0px 0px" }}
-        src="dev.jpg"
+        src="images/dev.jpg"
         alt="Project Preview"
       />
       <Box
@@ -57,7 +57,7 @@ export default function ProjectCard({
           >
             <img
               style={{ width: "2rem" }}
-              src="github-logo.png"
+              src="images/github-logo.png"
               alt="Github Link"
             />
           </Link>

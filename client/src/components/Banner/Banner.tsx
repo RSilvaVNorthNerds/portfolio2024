@@ -106,7 +106,7 @@ const Banner = () => {
             objectFit: "cover",
             borderRadius: "10px",
           }}
-          src="/profile-pic.jpg"
+          src="images/profile-pic.jpg"
         />
       </Box>
       <ResumeViewerModal isOpen={isModalOpen} onClose={handleModalOnClose} />

@@ -9,10 +9,11 @@ import {
   Toolbar,
   Box,
   AppBar,
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const sections = ["Projects", "Skills", "Publications", "Contact"];
+const sections = ["Projects", "Skills", "Publications"];
 
 function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -44,7 +45,7 @@ function Navigation() {
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <img
               style={{ width: "4rem" }}
-              src="logo.png"
+              src="images/logo.png"
               alt="Portfolio Logo"
             />
             <Typography variant="h5">Rafael Silva-Vergara</Typography>
@@ -110,6 +111,9 @@ function Navigation() {
                 {section}
               </Link>
             ))}
+            <Button variant="outlined" size="small">
+              <Link href="#contact">Contact</Link>
+            </Button>
           </Box>
         </Toolbar>
       </Container>
