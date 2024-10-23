@@ -2,20 +2,22 @@ import { Box, Button, Link, Typography } from "@mui/material";
 import { convert } from "html-to-text";
 
 interface PublicationCardProps {
-  name: string;
+  title: string;
   description: string;
   url: string;
+  author: string;
 }
 
 export default function PublicationCard({
-  name,
+  title,
   description,
   url,
+  author,
 }: PublicationCardProps) {
   // TODO: Move all this description processing to BE
   const descriptonPreview = description?.match(/<p>(.*?)<\/p>/)?.[1];
 
-  const parsedDescription = convert(descriptonPreview ?? "");
+  const parsedDescription = convert(descriptonPreview ?? "") + "..";
 
   return (
     <Box
@@ -41,7 +43,11 @@ export default function PublicationCard({
           flex: 1,
         }}
       >
-        <Typography variant="h6">{name}</Typography>
+        <Typography variant="h6">{title}</Typography>
+        <Typography
+          sx={{ fontWeight: "bold", fontStyle: "italic" }}
+          variant="body2"
+        >{`Author: ${author}`}</Typography>
         <Typography
           variant="body2"
           sx={{

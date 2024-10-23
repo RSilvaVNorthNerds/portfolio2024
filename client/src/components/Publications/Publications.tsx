@@ -21,15 +21,16 @@ const Publications = () => {
   }, []);
 
   return (
-    <Box>
+    <Box sx={{ maxWidth: "1200px", margin: "5em 0em" }}>
       <Typography variant="h4">Latest Publications</Typography>
       <Box>
         {publications.map((publication, index) => (
           <PublicationCard
             key={index}
-            name={publication.title}
+            title={publication.title}
             description={publication.content}
             url={publication.id}
+            author={publication.author}
           />
         ))}
       </Box>
