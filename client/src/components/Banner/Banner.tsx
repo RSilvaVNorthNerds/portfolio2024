@@ -27,7 +27,7 @@ const Banner = () => {
         gap: 2,
       }}
     >
-      <Box>
+      <Box sx={{ maxWidth: "800px" }}>
         <Box sx={{ width: "fit-content" }}>
           <Typography variant="h6">Hello, I'm</Typography>
           <Typography

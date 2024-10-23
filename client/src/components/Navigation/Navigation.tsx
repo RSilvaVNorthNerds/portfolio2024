@@ -1,13 +1,16 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
+import {
+  Link,
+  Typography,
+  MenuItem,
+  Container,
+  Menu,
+  IconButton,
+  Toolbar,
+  Box,
+  AppBar,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import MenuItem from "@mui/material/MenuItem";
-import { Link, Typography } from "@mui/material";
 
 const sections = ["Projects", "Skills", "Publications", "Contact"];
 
@@ -31,8 +34,9 @@ function Navigation() {
         maxWidth: "95%",
         borderRadius: "0px 0px 20px 20px",
         backgroundColor: "#242424",
-        position: "absolute",
+        position: "sticky",
         zIndex: "1000",
+        top: "0",
       }}
     >
       <Container maxWidth="xl">
