@@ -1,7 +1,10 @@
+import { useState } from "react";
+
 import { Box, Button, Typography } from "@mui/material";
 import { Download, Visibility } from "@mui/icons-material";
+
 import ResumeViewerModal from "./components/ResumeViewerModal";
-import { useState } from "react";
+import BannerStyles from "./BannerStyles";
 
 const Banner = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,18 +18,7 @@ const Banner = () => {
   };
 
   return (
-    <Box
-      paddingTop="70px"
-      sx={{
-        width: "100%",
-        padding: "0px 10em",
-        height: "calc(100vh - 70px)",
-        display: "flex",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-        gap: 2,
-      }}
-    >
+    <Box sx={BannerStyles.BannerContentWrapper}>
       <Box sx={{ maxWidth: "800px" }}>
         <Box sx={{ width: "fit-content" }}>
           <Typography variant="h6">Hello, I'm</Typography>
@@ -98,17 +90,11 @@ const Banner = () => {
           </Box>
         </Box>
       </Box>
-      <Box>
-        <img
-          style={{
-            width: "30rem",
-            height: "30rem",
-            objectFit: "cover",
-            borderRadius: "10px",
-          }}
-          src="images/profile-pic.jpg"
-        />
-      </Box>
+      <Box
+        sx={BannerStyles.BannerImage}
+        component="img"
+        src="images/profile-pic.jpg"
+      ></Box>
       <ResumeViewerModal isOpen={isModalOpen} onClose={handleModalOnClose} />
     </Box>
   );
