@@ -14,6 +14,8 @@ export default function SkillCard({
   return (
     <Box
       sx={{
+        width: "200px",
+        minWidth: "200px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -40,7 +42,7 @@ export default function SkillCard({
         <Typography variant="body1">{name}</Typography>
       </Box>
       <Typography variant="subtitle2">
-        Years of Experience: {yearsOfExperience}
+        Years of Experience: {yearsOfExperience}+
       </Typography>
     </Box>
   );

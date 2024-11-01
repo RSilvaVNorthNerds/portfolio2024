@@ -22,6 +22,7 @@ export default function ProjectCard({
         display: "flex",
         flexDirection: "column",
         boxShadow: "0px 0px 10px 0px #141414",
+        backgroundColor: "#102D3B",
       }}
     >
       <img

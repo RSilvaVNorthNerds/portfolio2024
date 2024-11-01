@@ -27,13 +27,13 @@ export default function ProjectShowcase() {
   }, []);
 
   return (
-    <Box id="projects">
+    <Box id="projects" sx={projectShowcaseStyles.projectShowcaseWrapper}>
       <Typography variant="h3" sx={projectShowcaseStyles.projectHeader}>
         Projects
       </Typography>
       <Grid container sx={projectShowcaseStyles.projectContainer}>
         {projects.map((project) => (
-          <Grid xs={12} sm={3} lg={3} xl={4}>
+          <Grid xs={12} sm={6} md={4} xl={3}>
             <ProjectCard
               name={project.name}
               description={project.description ?? ""}

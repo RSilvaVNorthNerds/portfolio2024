@@ -21,7 +21,10 @@ const Publications = () => {
   }, []);
 
   return (
-    <Box id="publications" sx={{ maxWidth: "1200px", margin: "5em 0em" }}>
+    <Box
+      id="publications"
+      sx={{ maxWidth: "1200px", margin: "5em 0em", padding: "0rem 3rem" }}
+    >
       <Typography
         variant="h4"
         sx={{

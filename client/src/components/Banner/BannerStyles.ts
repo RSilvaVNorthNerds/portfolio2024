@@ -7,7 +7,7 @@ const BannerStyles = {
     backgroundImage: 'url("../../public/images/river.svg")',
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center top",
+    backgroundPosition: "center bottom",
     backgroundColor: "#090e14",
   },
   BannerContentWrapper: {

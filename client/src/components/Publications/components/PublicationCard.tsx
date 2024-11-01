@@ -28,6 +28,7 @@ export default function PublicationCard({
         margin: "10px 0px",
         display: "flex",
         boxShadow: "0px 0px 10px 0px #141414",
+        backgroundColor: "#102D3B",
       }}
     >
       <img
