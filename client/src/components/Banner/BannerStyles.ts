@@ -8,7 +8,7 @@ const BannerStyles = {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center top",
-    backgroundColor: "transparent",
+    backgroundColor: "#090e14",
   },
   BannerContentWrapper: {
     paddingTop: "70px",

@@ -28,28 +28,12 @@ export default function ProjectShowcase() {
 
   return (
     <Box id="projects">
-      <Typography
-        variant="h3"
-        sx={{
-          margin: "3rem 0px",
-          width: "fit-content",
-          "::after": {
-            content: '""',
-            display: "block",
-            width: "55%",
-            height: "20px",
-            backgroundColor: "#508D9F",
-            transform: "translateX(100%) translateY(-110%)",
-            position: "relative",
-            zIndex: -1,
-          },
-        }}
-      >
+      <Typography variant="h3" sx={projectShowcaseStyles.projectHeader}>
         Projects
       </Typography>
       <Grid container sx={projectShowcaseStyles.projectContainer}>
         {projects.map((project) => (
-          <Grid xs={12} lg={3} xl={4}>
+          <Grid xs={12} sm={3} lg={3} xl={4}>
             <ProjectCard
               name={project.name}
               description={project.description ?? ""}
