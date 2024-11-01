@@ -20,8 +20,9 @@ const BannerStyles = {
     alignItems: "center",
     gap: 2,
 
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: "rgba(17,26,37,0.6)",
     padding: "2rem",
+    margin: "0 2rem",
     borderRadius: "10px",
 
     "@media (max-width: 768px)": {

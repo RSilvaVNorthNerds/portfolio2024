@@ -29,13 +29,27 @@ export default function PublicationCard({
         display: "flex",
         boxShadow: "0px 0px 10px 0px #141414",
         backgroundColor: "#102D3B",
+
+        "@media (max-width: 775px)": {
+          flexDirection: "column",
+          maxHeight: "unset",
+          height: "auto",
+        },
       }}
     >
-      <img
-        style={{ width: "20rem", borderRadius: "20px 0px 0px 20px" }}
+      <Box
+        component="img"
+        sx={{
+          width: "20rem",
+          borderRadius: "20px 0px 0px 20px",
+          "@media (max-width: 775px)": {
+            width: "100%",
+            borderRadius: "20px 20px 0px 0px",
+          },
+        }}
         src="images/dev.jpg"
         alt="Project Preview"
-      />
+      ></Box>
       <Box
         sx={{
           display: "flex",
@@ -73,6 +87,7 @@ export default function PublicationCard({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              marginTop: "1rem",
             }}
           >
             <Button variant="outlined">Check out the Full Article</Button>
