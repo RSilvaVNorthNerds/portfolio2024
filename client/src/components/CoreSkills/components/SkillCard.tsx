@@ -18,7 +18,7 @@ export default function SkillCard({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "grey",
+        backgroundColor: "#102D3B",
         borderRadius: "5px",
         padding: "1em",
         marginRight: "1em",

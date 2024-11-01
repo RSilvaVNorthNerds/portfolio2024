@@ -31,7 +31,7 @@ const Publications = () => {
             display: "block",
             width: "55%",
             height: "20px",
-            backgroundColor: "#2E409A",
+            backgroundColor: "#508D9F",
             transform: "translateX(100%) translateY(-110%)",
             position: "relative",
             zIndex: -1,

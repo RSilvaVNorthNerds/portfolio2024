@@ -1,4 +1,15 @@
 const BannerStyles = {
+  BannerWrapper: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundImage: 'url("../../public/images/river.svg")',
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center top",
+    backgroundColor: "transparent",
+  },
   BannerContentWrapper: {
     paddingTop: "70px",
     width: "100%",
