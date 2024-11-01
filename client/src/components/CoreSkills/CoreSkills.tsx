@@ -46,6 +46,7 @@ export default function CoreSkills() {
       id="skills"
       sx={{
         width: "100%",
+        maxWidth: "1200px",
         backgroundColor: "#111A25",
         display: "flex",
         flexDirection: "column",
@@ -56,7 +57,7 @@ export default function CoreSkills() {
       }}
     >
       <Typography
-        variant="h3"
+        variant="h4"
         sx={{
           width: "fit-content",
           zIndex: 1,

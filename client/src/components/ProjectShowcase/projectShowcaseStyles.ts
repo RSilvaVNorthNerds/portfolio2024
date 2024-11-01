@@ -1,6 +1,7 @@
 const projectShowcaseStyles = {
   projectShowcaseWrapper: {
     width: "100%",
+    maxWidth: "1200px",
     padding: "0rem 3rem",
 
     "@media (max-width: 800px)": {

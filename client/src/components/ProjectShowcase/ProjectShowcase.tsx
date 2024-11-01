@@ -28,8 +28,8 @@ export default function ProjectShowcase() {
 
   return (
     <Box id="projects" sx={projectShowcaseStyles.projectShowcaseWrapper}>
-      <Typography variant="h3" sx={projectShowcaseStyles.projectHeader}>
-        Projects
+      <Typography variant="h4" sx={projectShowcaseStyles.projectHeader}>
+        Latest Projects
       </Typography>
       <Grid container sx={projectShowcaseStyles.projectContainer}>
         {projects.map((project) => (

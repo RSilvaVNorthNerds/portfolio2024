@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import PublicationCard from "./components/PublicationCard";
+import { getArticleImageURL } from "./helpers";
 
 interface GetAllPublicationsResponse {
   id: string;
@@ -51,6 +52,7 @@ const Publications = () => {
             description={publication.content}
             url={publication.id}
             author={publication.author}
+            imgUrl={getArticleImageURL(publication.content)}
           />
         ))}
       </Box>

@@ -6,6 +6,7 @@ interface PublicationCardProps {
   description: string;
   url: string;
   author: string;
+  imgUrl?: string;
 }
 
 export default function PublicationCard({
@@ -13,6 +14,7 @@ export default function PublicationCard({
   description,
   url,
   author,
+  imgUrl,
 }: PublicationCardProps) {
   // TODO: Move all this description processing to BE
   const descriptonPreview = description?.match(/<p>(.*?)<\/p>/)?.[1];
@@ -23,7 +25,8 @@ export default function PublicationCard({
     <Box
       sx={{
         width: "100%",
-        maxHeight: "300px",
+        height: "200px",
+        maxHeight: "200px",
         borderRadius: "20px",
         margin: "10px 0px",
         display: "flex",
@@ -42,12 +45,13 @@ export default function PublicationCard({
         sx={{
           width: "20rem",
           borderRadius: "20px 0px 0px 20px",
+          objectFit: "cover",
           "@media (max-width: 775px)": {
             width: "100%",
             borderRadius: "20px 20px 0px 0px",
           },
         }}
-        src="images/dev.jpg"
+        src={imgUrl ?? "images/dev.jpg"}
         alt="Project Preview"
       ></Box>
       <Box
@@ -88,6 +92,7 @@ export default function PublicationCard({
               alignItems: "center",
               justifyContent: "center",
               marginTop: "1rem",
+              textDecoration: "none",
             }}
           >
             <Button variant="outlined">Check out the Full Article</Button>
