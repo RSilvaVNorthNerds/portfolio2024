@@ -5,7 +5,7 @@ const BannerStyles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundImage: 'url("../../public/images/river.svg")',
+    backgroundImage: 'url("images/river.svg")',
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center bottom",

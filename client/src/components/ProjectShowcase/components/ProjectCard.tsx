@@ -16,7 +16,8 @@ export default function ProjectCard({
     <Box
       sx={{
         width: "300px",
-        minHeight: "350px",
+        height: "375px",
+        maxHeight: "375px",
         borderRadius: "20px",
         margin: "0px 10px",
         display: "flex",
@@ -39,7 +40,12 @@ export default function ProjectCard({
         }}
       >
         <Typography variant="h6">{name}</Typography>
-        <Typography variant="body2">{description}</Typography>
+        <Typography
+          variant="body2"
+          sx={{ height: "60px", marginBottom: "1rem", overflowY: "auto" }}
+        >
+          {description}
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -50,6 +56,7 @@ export default function ProjectCard({
         >
           <Link
             href={githubLink}
+            target="_blank"
             sx={{
               display: "flex",
               alignItems: "center",
