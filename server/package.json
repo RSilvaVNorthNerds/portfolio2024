@@ -5,7 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "dev": "nodemon server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "author": "Rafael Silva-Vergara",
   "license": "ISC",
