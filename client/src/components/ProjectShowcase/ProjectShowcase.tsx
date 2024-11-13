@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import ProjectCard from "./components/ProjectCard";
 import { useEffect, useState } from "react";
 import projectShowcaseStyles from "./projectShowcaseStyles";
+import environment from "../../../environment";
 
 type GetAllProjectsResponse = {
   name: string;
@@ -14,7 +15,8 @@ export default function ProjectShowcase() {
   const [projects, setProjects] = useState<GetAllProjectsResponse[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3003/all-projects", {
+    console.error(environment.API_URL);
+    fetch(`${environment.API_URL}:3003/all-projects`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

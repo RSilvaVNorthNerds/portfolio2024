@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import SkillCard from "./components/SkillCard";
 import { useEffect, useState } from "react";
 import CoreSkillsStyles from "./CoreSkillsStyles";
+import environment from "../../../environment";
 
 type GetAllSkillsResponse = {
   name: string;
@@ -24,7 +25,7 @@ export default function CoreSkills() {
   const [skills, setSkills] = useState<GetAllSkillsResponse[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3003/get-skills", {
+    fetch(`${environment.API_URL}:3003/get-skills`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
