@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import PublicationCard from "./components/PublicationCard";
 import { getArticleImageURL } from "./helpers";
+import environment from "../../../environment";
 
 interface GetAllPublicationsResponse {
   id: string;
@@ -16,7 +17,7 @@ const Publications = () => {
   >([]);
 
   useEffect(() => {
-    fetch("http://localhost:3003/get-publications")
+    fetch(`${environment.API_URL}:3003/get-publications`)
       .then((raw) => raw.json())
       .then((data) => setPublications(data));
   }, []);
