@@ -25,7 +25,7 @@ export default function CoreSkills() {
   const [skills, setSkills] = useState<GetAllSkillsResponse[]>([]);
 
   useEffect(() => {
-    fetch(`${environment.API_URL}:3003/get-skills`, {
+    fetch(`${environment.API_URL}/get-skills`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -17,7 +17,7 @@ const Publications = () => {
   >([]);
 
   useEffect(() => {
-    fetch(`${environment.API_URL}:3003/get-publications`)
+    fetch(`${environment.API_URL}/get-publications`)
       .then((raw) => raw.json())
       .then((data) => setPublications(data));
   }, []);
