@@ -15,7 +15,6 @@ export default function ProjectShowcase() {
   const [projects, setProjects] = useState<GetAllProjectsResponse[]>([]);
 
   useEffect(() => {
-    console.error(environment.API_URL);
     fetch(`${environment.API_URL}:3003/all-projects`, {
       method: "GET",
       headers: {
