@@ -11,7 +11,7 @@ export interface ProjectModalProps {
 function ProjectModal({
   isOpen,
   onClose,
-  projectInfo: { name, description, githubLink },
+  projectInfo: { name, description, githubLink, thumbnailUrl },
 }: ProjectModalProps) {
   return (
     <Modal
@@ -39,7 +39,7 @@ function ProjectModal({
           onClick={onClose}
         />
         <Typography variant="h5">{name}</Typography>
-        <img src="images/dev.jpg" />
+        <img src={thumbnailUrl ? thumbnailUrl : "images/dev.jpg"} />
         <Typography variant="body1" sx={{ marginTop: "1em" }}>
           {description}
         </Typography>

@@ -9,6 +9,8 @@ export interface ProjectCardProps {
   description?: string;
   url: string;
   githubLink?: string;
+  thumbnailUrl?: string;
+  techStack?: string[];
 }
 
 export default function ProjectCard({
@@ -16,6 +18,8 @@ export default function ProjectCard({
   description,
   githubLink,
   url,
+  thumbnailUrl,
+  techStack,
 }: ProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -44,7 +48,7 @@ export default function ProjectCard({
       >
         <img
           style={{ width: "100%", borderRadius: "20px 20px 0px 0px" }}
-          src="images/dev.jpg"
+          src={thumbnailUrl ? thumbnailUrl : "images/dev.jpg"}
           alt="Project Preview"
         />
         <Box
@@ -94,7 +98,14 @@ export default function ProjectCard({
       <ProjectModal
         isOpen={isModalOpen}
         onClose={handleModalOnClose}
-        projectInfo={{ name, description, url, githubLink }}
+        projectInfo={{
+          name,
+          description,
+          url,
+          githubLink,
+          thumbnailUrl,
+          techStack,
+        }}
       />
     </>
   );

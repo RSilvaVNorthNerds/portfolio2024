@@ -9,6 +9,8 @@ type GetAllProjectsResponse = {
   description: string;
   url: string;
   githubUrl: string;
+  thumbnailUrl: string;
+  techStack: string[];
 };
 
 export default function ProjectShowcase() {
@@ -40,6 +42,8 @@ export default function ProjectShowcase() {
               description={project.description ?? ""}
               url={project.url}
               githubLink={project.githubUrl ?? ""}
+              thumbnailUrl={project.thumbnailUrl}
+              techStack={project.techStack}
             />
           </Grid>
         ))}
