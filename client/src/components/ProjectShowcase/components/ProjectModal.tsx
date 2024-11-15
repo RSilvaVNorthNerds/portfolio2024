@@ -17,7 +17,12 @@ function ProjectModal({
     <Modal
       open={isOpen}
       onClose={onClose}
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: "0rem 1rem",
+      }}
     >
       <Box
         sx={{
@@ -27,6 +32,10 @@ function ProjectModal({
           padding: "2em",
           borderRadius: "10px",
           position: "relative",
+
+          "@media (max-width: 768px)": {
+            width: "fit-content",
+          },
         }}
       >
         <Close
@@ -38,12 +47,28 @@ function ProjectModal({
           }}
           onClick={onClose}
         />
-        <Typography variant="h5">{name}</Typography>
-        <img src={thumbnailUrl ? thumbnailUrl : "images/dev.jpg"} />
-        <Typography variant="body1" sx={{ marginTop: "1em" }}>
-          {description}
-        </Typography>
-        <Button href={githubLink}>Check out the code on github!</Button>
+        <Box
+          sx={{
+            display: "flex",
+            "@media (max-width: 768px)": {
+              flexDirection: "column",
+            },
+          }}
+        >
+          <img
+            style={{ width: "100%", maxWidth: "400px" }}
+            src={thumbnailUrl ? thumbnailUrl : "images/dev.jpg"}
+          />
+          <Box sx={{ padding: "1rem" }}>
+            <Typography variant="h5">{name}</Typography>
+            <Typography variant="body1" sx={{ marginTop: "1em" }}>
+              {description}
+            </Typography>
+            <Button variant="outlined" href={githubLink}>
+              Check out the code on github!
+            </Button>
+          </Box>
+        </Box>
       </Box>
     </Modal>
   );
