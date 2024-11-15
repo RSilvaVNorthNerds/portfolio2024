@@ -72,6 +72,10 @@ const Banner = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "1em",
+
+                "@media (max-width: 768px)": {
+                  flexDirection: "column",
+                },
               }}
             >
               <Button
@@ -79,12 +83,28 @@ const Banner = () => {
                 download="Rafael-Silva-Vergara-Resume.docx"
                 variant="outlined"
                 size="large"
+                sx={{ textAlign: "start" }}
               >
                 <Download sx={{ marginRight: "10px" }} />
                 Download Resume
               </Button>
-              |
-              <Button variant="outlined" size="large" onClick={handleModalOpen}>
+              <Typography
+                variant="h2"
+                sx={{
+                  color: "#fff",
+                  "@media (max-width:768px)": {
+                    transform: "rotate(90deg)",
+                  },
+                }}
+              >
+                |
+              </Typography>
+              <Button
+                variant="outlined"
+                size="large"
+                sx={{ textAlign: "start" }}
+                onClick={handleModalOpen}
+              >
                 <Visibility sx={{ marginRight: "10px" }} />
                 View Resume
               </Button>

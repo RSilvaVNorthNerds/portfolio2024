@@ -4,11 +4,7 @@ const CoreSkillsStyles = {
   },
   CoreSkillsRow: {
     display: "flex",
-    overflowX: "hidden",
-
-    "&:hover": {
-      overflowX: "auto",
-    },
+    overflowX: "auto",
   },
 };
 
