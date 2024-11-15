@@ -90,6 +90,11 @@ function Navigation() {
                   </Link>
                 </MenuItem>
               ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="#contact" textAlign="center">
+                  Lets Connect
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
           <Box
