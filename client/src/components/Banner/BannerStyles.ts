@@ -36,6 +36,7 @@ const BannerStyles = {
   },
   BannerImage: {
     width: "100%",
+    maxWidth: "350px",
     minWidth: "250px",
     height: "auto",
     objectFit: "cover",
