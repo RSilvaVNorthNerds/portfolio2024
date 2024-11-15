@@ -13,6 +13,12 @@ const projectShowcaseStyles = {
   },
   projectContainer: {
     width: "100%",
+
+    "@media (max-width: 768px)": {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
   },
   projectHeader: {
     width: "fit-content",

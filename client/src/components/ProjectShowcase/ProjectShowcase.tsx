@@ -36,7 +36,7 @@ export default function ProjectShowcase() {
       </Typography>
       <Grid container sx={projectShowcaseStyles.projectContainer}>
         {projects.map((project) => (
-          <Grid xs={12} sm={6} md={4} xl={3}>
+          <Grid xs={12} sm={6} md={4} xl={3} sx={{ margin: "2rem 0rem" }}>
             <ProjectCard
               name={project.name}
               description={project.description ?? ""}
