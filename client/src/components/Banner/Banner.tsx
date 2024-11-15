@@ -20,7 +20,7 @@ const Banner = () => {
   return (
     <Box sx={BannerStyles.BannerWrapper}>
       <Box sx={BannerStyles.BannerContentWrapper}>
-        <Box sx={{ maxWidth: "800px" }}>
+        <Box sx={{ width: "100%", maxWidth: "800px" }}>
           <Box sx={{ width: "fit-content" }}>
             <Typography variant="h6">Hello, I'm</Typography>
             <Typography

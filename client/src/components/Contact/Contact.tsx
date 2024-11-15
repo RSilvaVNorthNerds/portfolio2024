@@ -6,6 +6,8 @@ export default function Contact() {
     <Box
       sx={{
         width: "100%",
+        padding: "0rem 1rem",
+        marginBottom: "5rem",
         backgroundImage: "url('images/mine.svg')",
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
@@ -24,9 +26,12 @@ export default function Contact() {
         }}
       >
         <Typography
-          variant="h3"
+          variant="h4"
           sx={{
             width: "fit-content",
+            position: "relative",
+            zIndex: 1,
+
             "::after": {
               content: '""',
               display: "block",
@@ -36,6 +41,13 @@ export default function Contact() {
               transform: "translateX(100%) translateY(-110%)",
               position: "relative",
               zIndex: -1,
+            },
+
+            "@media (max-width: 768px)": {
+              textAlign: "center",
+              "::after": {
+                width: "53%",
+              },
             },
           }}
         >

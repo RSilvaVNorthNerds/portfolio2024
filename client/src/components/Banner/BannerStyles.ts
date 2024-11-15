@@ -10,9 +10,13 @@ const BannerStyles = {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center bottom",
     backgroundColor: "#090e14",
+    paddingTop: "70px",
+
+    "@media (max-width: 768px)": {
+      height: "auto",
+    },
   },
   BannerContentWrapper: {
-    paddingTop: "70px",
     width: "100%",
     maxWidth: "1200px",
     display: "flex",
@@ -28,7 +32,6 @@ const BannerStyles = {
     "@media (max-width: 768px)": {
       height: "auto",
       flexDirection: "column-reverse",
-      padding: "0 2rem",
     },
   },
   BannerImage: {

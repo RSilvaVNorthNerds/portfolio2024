@@ -25,12 +25,24 @@ const Publications = () => {
   return (
     <Box
       id="publications"
-      sx={{ maxWidth: "1200px", margin: "5em 0em", padding: "0rem 3rem" }}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        maxWidth: "1200px",
+        margin: "5em 0em",
+        padding: "0rem 3rem",
+
+        "@media (max-width: 768px)": {
+          alignItems: "center",
+        },
+      }}
     >
       <Typography
         variant="h4"
         sx={{
           width: "fit-content",
+          position: "relative",
+
           "::after": {
             content: '""',
             display: "block",
@@ -38,8 +50,15 @@ const Publications = () => {
             height: "20px",
             backgroundColor: "#508D9F",
             transform: "translateX(100%) translateY(-110%)",
-            position: "relative",
+            position: "absolute",
             zIndex: -1,
+          },
+
+          "@media (max-width: 768px)": {
+            textAlign: "center",
+            "::after": {
+              width: "55%",
+            },
           },
         }}
       >

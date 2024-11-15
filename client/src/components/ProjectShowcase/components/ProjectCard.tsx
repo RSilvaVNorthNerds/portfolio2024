@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Box, Button, Link, Typography } from "@mui/material";
 
 import ProjectModal from "./ProjectModal";
+import projectShowcaseStyles from "../projectShowcaseStyles";
 
 export interface ProjectCardProps {
   name: string;
@@ -31,49 +32,25 @@ export default function ProjectCard({
     setIsModalOpen(true);
   };
 
+  const thumbnailImage = thumbnailUrl ? thumbnailUrl : "images/dev.jpg";
+
   return (
     <>
-      <Box
-        sx={{
-          width: "300px",
-          height: "375px",
-          maxHeight: "375px",
-          borderRadius: "20px",
-          margin: "0px 10px",
-          display: "flex",
-          flexDirection: "column",
-          boxShadow: "0px 0px 10px 0px #141414",
-          backgroundColor: "#102D3B",
-        }}
-      >
+      <Box sx={projectShowcaseStyles.projectCardWrapper}>
         <img
           style={{ width: "100%", borderRadius: "20px 20px 0px 0px" }}
-          src={thumbnailUrl ? thumbnailUrl : "images/dev.jpg"}
+          src={thumbnailImage}
           alt="Project Preview"
         />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            padding: "0.75em",
-            flex: 1,
-          }}
-        >
+        <Box sx={projectShowcaseStyles.projectCardContent}>
           <Typography variant="h6">{name}</Typography>
           <Typography
             variant="body2"
-            sx={{ height: "60px", marginBottom: "1rem", overflowY: "auto" }}
+            sx={projectShowcaseStyles.projectCardDescription}
           >
             {description}
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-evenly",
-              marginTop: "auto",
-            }}
-          >
+          <Box sx={projectShowcaseStyles.projectCardActionButtons}>
             <Link
               href={githubLink}
               target="_blank"
