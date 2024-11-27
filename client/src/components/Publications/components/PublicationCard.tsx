@@ -17,7 +17,9 @@ export default function PublicationCard({
   imgUrl,
 }: PublicationCardProps) {
   // TODO: Move all this description processing to BE
-  const descriptonPreview = description?.match(/<p>(.*?)<\/p>/)?.[1];
+  const descriptonPreview = description
+    ?.match(/<p>(.*?)<\/p>/)?.[1]
+    .substring(0, 225);
 
   const parsedDescription = convert(descriptonPreview ?? "") + "..";
 
@@ -34,6 +36,7 @@ export default function PublicationCard({
         backgroundColor: "#102D3B",
 
         "@media (max-width: 775px)": {
+          maxWidth: "300px",
           flexDirection: "column",
           maxHeight: "unset",
           height: "auto",
@@ -47,6 +50,7 @@ export default function PublicationCard({
           borderRadius: "20px 0px 0px 20px",
           objectFit: "cover",
           "@media (max-width: 775px)": {
+            maxHeight: "12rem",
             width: "100%",
             borderRadius: "20px 20px 0px 0px",
           },
