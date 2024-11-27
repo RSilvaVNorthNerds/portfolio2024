@@ -71,9 +71,11 @@ function ProjectModal({
             >
               {description}
             </Typography>
-            <Button variant="outlined" href={url}>
-              Check out a free Demo!
-            </Button>
+            {url && (
+              <Button variant="outlined" href={url} target="_blank">
+                Check out a free Demo!
+              </Button>
+            )}
           </Box>
         </Box>
       </Box>
