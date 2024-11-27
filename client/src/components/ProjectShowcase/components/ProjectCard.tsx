@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Box, Button, Link, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 import ProjectModal from "./ProjectModal";
 import projectShowcaseStyles from "../projectShowcaseStyles";
@@ -38,7 +38,14 @@ export default function ProjectCard({
     <>
       <Box sx={projectShowcaseStyles.projectCardWrapper}>
         <img
-          style={{ width: "100%", borderRadius: "20px 20px 0px 0px" }}
+          style={{
+            width: "100%",
+            height: "12rem",
+            minHeight: "12rem",
+            objectFit: "cover",
+            maxHeight: "12rem",
+            borderRadius: "20px 20px 0px 0px",
+          }}
           src={thumbnailImage}
           alt="Project Preview"
         />
@@ -51,7 +58,7 @@ export default function ProjectCard({
             {description}
           </Typography>
           <Box sx={projectShowcaseStyles.projectCardActionButtons}>
-            <Link
+            {/* <Link
               href={githubLink}
               target="_blank"
               sx={{
@@ -65,7 +72,7 @@ export default function ProjectCard({
                 src="images/github-logo.png"
                 alt="Github Link"
               />
-            </Link>
+            </Link> */}
             <Button variant="outlined" onClick={handleModalOpen}>
               Learn More
             </Button>
