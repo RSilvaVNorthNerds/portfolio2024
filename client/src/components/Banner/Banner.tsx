@@ -41,7 +41,10 @@ const Banner = () => {
               Rafael
             </Typography>
           </Box>
-          <Typography variant="subtitle2">
+          <Typography
+            variant="subtitle2"
+            sx={{ maxHeight: "200px", overflow: "auto" }}
+          >
             As a seasoned Full-Stack Developer with over 4 years of professional
             experience, I bring a wealth of knowledge in computer science and a
             diverse skill set to the table. My expertise spans across various

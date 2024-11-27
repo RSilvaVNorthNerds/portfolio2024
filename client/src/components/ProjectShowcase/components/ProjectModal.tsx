@@ -11,7 +11,7 @@ export interface ProjectModalProps {
 function ProjectModal({
   isOpen,
   onClose,
-  projectInfo: { name, description, githubLink, thumbnailUrl },
+  projectInfo: { name, description, thumbnailUrl, url },
 }: ProjectModalProps) {
   return (
     <Modal
@@ -41,8 +41,8 @@ function ProjectModal({
         <Close
           sx={{
             position: "absolute",
-            top: "5px",
-            right: "5px",
+            top: "10px",
+            right: "10px",
             cursor: "pointer",
           }}
           onClick={onClose}
@@ -56,16 +56,23 @@ function ProjectModal({
           }}
         >
           <img
-            style={{ width: "100%", maxWidth: "400px" }}
+            style={{
+              width: "100%",
+              maxHeight: "20rem",
+              objectFit: "cover",
+            }}
             src={thumbnailUrl ? thumbnailUrl : "images/dev.jpg"}
           />
           <Box sx={{ padding: "1rem" }}>
             <Typography variant="h5">{name}</Typography>
-            <Typography variant="body1" sx={{ marginTop: "1em" }}>
+            <Typography
+              variant="body1"
+              sx={{ marginTop: "1em", maxHeight: "200px", overflow: "auto" }}
+            >
               {description}
             </Typography>
-            <Button variant="outlined" href={githubLink}>
-              Check out the code on github!
+            <Button variant="outlined" href={url}>
+              Check out a free Demo!
             </Button>
           </Box>
         </Box>
