@@ -11,7 +11,7 @@ export interface ProjectModalProps {
 function ProjectModal({
   isOpen,
   onClose,
-  projectInfo: { name, description, thumbnailUrl, url },
+  projectInfo: { name, description, thumbnailUrl, url, techStack },
 }: ProjectModalProps) {
   return (
     <Modal
@@ -65,6 +65,34 @@ function ProjectModal({
           />
           <Box sx={{ padding: "1rem" }}>
             <Typography variant="h5">{name}</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "0.5em",
+                flexWrap: "wrap",
+                marginTop: "1em",
+              }}
+            >
+              {techStack &&
+                techStack.map((tool) => {
+                  return (
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        width: "fit-content",
+                        height: "fit-content",
+                        padding: "0.5em",
+                        borderRadius: "5px",
+                        border: "1px solid #90CAF9",
+                        color: "#90CAF9",
+                        fontSize: "0.8rem",
+                      }}
+                    >
+                      {tool}
+                    </Typography>
+                  );
+                })}
+            </Box>
             <Typography
               variant="body1"
               sx={{ marginTop: "1em", maxHeight: "200px", overflow: "auto" }}
