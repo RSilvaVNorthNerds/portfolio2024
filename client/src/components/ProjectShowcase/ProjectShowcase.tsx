@@ -36,16 +36,14 @@ export default function ProjectShowcase() {
       </Typography>
       <Grid container sx={projectShowcaseStyles.projectContainer}>
         {projects.map((project) => (
-          <Box sx={{ margin: "2rem 0rem" }}>
-            <ProjectCard
-              name={project.name}
-              description={project.description ?? ""}
-              url={project.url}
-              githubLink={project.githubUrl ?? ""}
-              thumbnailUrl={project.thumbnailUrl}
-              techStack={project.techStack}
-            />
-          </Box>
+          <ProjectCard
+            name={project.name}
+            description={project.description ?? ""}
+            url={project.url}
+            githubLink={project.githubUrl ?? ""}
+            thumbnailUrl={project.thumbnailUrl}
+            techStack={project.techStack}
+          />
         ))}
       </Grid>
     </Box>

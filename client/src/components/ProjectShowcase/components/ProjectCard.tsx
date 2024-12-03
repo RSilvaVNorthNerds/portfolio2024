@@ -35,7 +35,15 @@ export default function ProjectCard({
   const thumbnailImage = thumbnailUrl ? thumbnailUrl : "images/dev.jpg";
 
   return (
-    <>
+    <Box
+      sx={{
+        margin: "2rem 0rem",
+        "&:hover": {
+          transform: "scale(1.01)",
+          transition: "all 0.25s ease",
+        },
+      }}
+    >
       <Box sx={projectShowcaseStyles.projectCardWrapper}>
         <img
           style={projectShowcaseStyles.ProjectCardImage as React.CSSProperties}
@@ -86,6 +94,6 @@ export default function ProjectCard({
           techStack,
         }}
       />
-    </>
+    </Box>
   );
 }
