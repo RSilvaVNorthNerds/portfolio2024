@@ -52,6 +52,14 @@ const projectShowcaseStyles = {
     padding: "0.75em",
     flex: 1,
   },
+  ProjectCardImage: {
+    width: "100%",
+    height: "12rem",
+    minHeight: "12rem",
+    objectFit: "cover",
+    maxHeight: "12rem",
+    borderRadius: "20px 20px 0px 0px",
+  },
   projectCardDescription: {
     height: "60px",
     marginBottom: "1rem",

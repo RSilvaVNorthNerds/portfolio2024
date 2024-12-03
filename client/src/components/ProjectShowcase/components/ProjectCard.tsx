@@ -38,19 +38,14 @@ export default function ProjectCard({
     <>
       <Box sx={projectShowcaseStyles.projectCardWrapper}>
         <img
-          style={{
-            width: "100%",
-            height: "12rem",
-            minHeight: "12rem",
-            objectFit: "cover",
-            maxHeight: "12rem",
-            borderRadius: "20px 20px 0px 0px",
-          }}
+          style={projectShowcaseStyles.ProjectCardImage as React.CSSProperties}
           src={thumbnailImage}
           alt="Project Preview"
         />
         <Box sx={projectShowcaseStyles.projectCardContent}>
-          <Typography variant="h6">{name}</Typography>
+          <Typography variant="h6" sx={{ fontWeight: "600" }}>
+            {name}
+          </Typography>
           <Typography
             variant="body2"
             sx={projectShowcaseStyles.projectCardDescription}

@@ -23,27 +23,11 @@ const Banner = () => {
         <Box sx={{ width: "100%", maxWidth: "800px" }}>
           <Box sx={{ width: "fit-content" }}>
             <Typography variant="h6">Hello, I'm</Typography>
-            <Typography
-              variant="h2"
-              sx={{
-                "::after": {
-                  content: '""',
-                  display: "block",
-                  width: "55%",
-                  height: "20px",
-                  backgroundColor: "#2E409A",
-                  transform: "translateX(100%) translateY(-110%)",
-                  position: "relative",
-                  zIndex: -1,
-                },
-              }}
-            >
-              Rafael
-            </Typography>
+            <Typography variant="h2">Rafael</Typography>
           </Box>
           <Typography
             variant="subtitle2"
-            sx={{ maxHeight: "200px", overflow: "auto" }}
+            sx={BannerStyles.BannerContentDescription}
           >
             As a seasoned Full-Stack Developer with over 4 years of professional
             experience, I bring a wealth of knowledge in computer science and a
@@ -63,12 +47,6 @@ const Banner = () => {
               padding: "3em 1em",
             }}
           >
-            <Typography
-              variant="h5"
-              sx={{ fontSize: "1em", fontWeight: 600, marginBottom: "2em" }}
-            >
-              View My Resume
-            </Typography>
             <Box
               sx={{
                 display: "flex",
@@ -88,7 +66,7 @@ const Banner = () => {
                 size="large"
                 sx={{ textAlign: "start" }}
               >
-                <Download sx={{ marginRight: "10px" }} />
+                <Download sx={{ marginRight: "10px", borderWidth: "2px" }} />
                 Download Resume
               </Button>
               <Typography
@@ -99,16 +77,14 @@ const Banner = () => {
                     transform: "rotate(90deg)",
                   },
                 }}
-              >
-                |
-              </Typography>
+              ></Typography>
               <Button
                 variant="outlined"
                 size="large"
                 sx={{ textAlign: "start" }}
                 onClick={handleModalOpen}
               >
-                <Visibility sx={{ marginRight: "10px" }} />
+                <Visibility sx={{ marginRight: "10px", borderWidth: "2px" }} />
                 View Resume
               </Button>
             </Box>

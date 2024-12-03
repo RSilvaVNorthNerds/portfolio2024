@@ -49,6 +49,10 @@ const BannerStyles = {
       minWidth: "unset",
     },
   },
+  BannerContentDescription: {
+    maxHeight: "200px",
+    overflow: "auto",
+  },
 };
 
 export default BannerStyles;
