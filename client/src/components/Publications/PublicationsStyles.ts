@@ -9,6 +9,11 @@ const PublicationsStyles = {
     boxShadow: "0px 0px 10px 0px #141414",
     backgroundColor: "#102D3B",
 
+    "&:hover": {
+      transform: "scale(1.01)",
+      transition: "all 0.25s ease",
+    },
+
     "@media (max-width: 775px)": {
       maxWidth: "300px",
       flexDirection: "column",
