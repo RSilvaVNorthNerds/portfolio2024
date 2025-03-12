@@ -41,15 +41,16 @@ const Publications = () => {
         Latest Publications
       </Typography>
       <Box>
-        {publications.map((publication, index) => (
-          <PublicationCard
-            key={index}
-            title={publication.title}
-            description={publication.content}
-            url={publication.id}
-            author={publication.author}
-          />
-        ))}
+        {publications &&
+          publications.map((publication, index) => (
+            <PublicationCard
+              key={index}
+              title={publication.title}
+              description={publication.content}
+              url={publication.id}
+              author={publication.author}
+            />
+          ))}
       </Box>
     </Box>
   );
