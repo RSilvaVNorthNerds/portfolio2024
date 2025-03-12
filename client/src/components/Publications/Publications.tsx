@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import PublicationCard from "./components/PublicationCard";
-import { getArticleImageURL } from "./helpers";
 import environment from "../../../environment";
 
 interface GetAllPublicationsResponse {
