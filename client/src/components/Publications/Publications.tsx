@@ -69,9 +69,9 @@ const Publications = () => {
             <PublicationCard
               key={index}
               title={publication.title}
-              description={publication.content}
-              url={publication.id}
-              author={publication.author}
+              description={publication["content:encoded"][0]}
+              url={publication.link}
+              author={publication["dc:creator"]}
             />
           ))}
       </Box>

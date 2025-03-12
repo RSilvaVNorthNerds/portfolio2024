@@ -4,8 +4,9 @@ import Project from "./db/schemas/projectsSchema";
 import dotenv from "dotenv";
 import cors from "cors";
 import Skills from "./db/schemas/skillsSchema";
-import parse from "rss-to-json";
 import Mailer from "./Mailer/Mailer";
+import axios from "axios";
+import { parseStringPromise } from "xml2js";
 
 dotenv.config();
 
@@ -42,11 +43,20 @@ app.get("/get-skills", async (req, res) => {
 
 app.get("/get-publications", async (req, res) => {
   try {
-    const data = await parse(
-      "https://medium.com/feed/@rafael-silva-vergara-dev"
+    const response = await axios.get(
+      "https://medium.com/feed/@rafael-silva-vergara-dev",
+      {
+        headers: {
+          "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+        },
+      }
     );
 
-    res.send(JSON.stringify(data.items));
+    const data = await parseStringPromise(response.data);
+    const items = data.rss.channel[0].item;
+
+    res.send(JSON.stringify(items));
   } catch (error) {
     res.status(500).send(error);
   }
