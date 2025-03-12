@@ -3,7 +3,7 @@ import Banner from "./components/Banner/Banner";
 import ProjectShowcase from "./components/ProjectShowcase/ProjectShowcase";
 import Contact from "./components/Contact/Contact";
 import { Box, createTheme, ThemeProvider } from "@mui/material";
-import CoreSkills from "./components/CoreSkillCarousel/CoreSkills";
+import CoreSkills from "./components/CoreSkills/CoreSkills";
 import Publications from "./components/Publications/Publications";
 
 function App() {

@@ -1,6 +1,9 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
-import contactStyles from "../contactStyles";
 import { ChangeEvent, FormEvent, useState } from "react";
+
+import { Box, Button, TextField, Typography } from "@mui/material";
+
+import contactStyles from "../contactStyles";
+import environment from "../../../../environment";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -14,7 +17,7 @@ export default function ContactForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3003/contact-me", {
+      const response = await fetch(`${environment.API_URL}/contact-me`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

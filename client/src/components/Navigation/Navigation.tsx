@@ -10,8 +10,10 @@ import {
   Box,
   AppBar,
   Button,
+  useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import NavigationStyles from "./NavigationStyles";
 
 const sections = ["Projects", "Skills", "Publications"];
 
@@ -19,6 +21,8 @@ function Navigation() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
+
+  const isMobileWidth = useMediaQuery("(max-width: 600px)");
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -29,26 +33,19 @@ function Navigation() {
   };
 
   return (
-    <AppBar
-      position="static"
-      sx={{
-        maxWidth: "95%",
-        borderRadius: "0px 0px 20px 20px",
-        backgroundColor: "#242424",
-        position: "sticky",
-        zIndex: "1000",
-        top: "0",
-      }}
-    >
+    <AppBar position="static" sx={NavigationStyles.navigation}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <img
-              style={{ width: "4rem" }}
+            <Box
+              component="img"
+              sx={{ width: "4rem" }}
               src="images/logo.png"
               alt="Portfolio Logo"
-            />
-            <Typography variant="h5">Rafael Silva-Vergara</Typography>
+            ></Box>
+            {!isMobileWidth && (
+              <Typography variant="h5">Rafael Silva-Vergara</Typography>
+            )}
           </Box>
 
           <Box
@@ -93,6 +90,11 @@ function Navigation() {
                   </Link>
                 </MenuItem>
               ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link href="#contact" textAlign="center">
+                  Lets Connect
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
           <Box
@@ -100,19 +102,38 @@ function Navigation() {
               flexGrow: 1,
               display: { xs: "none", md: "flex" },
               justifyContent: "flex-end",
+              alignItems: "center",
             }}
           >
             {sections.map((section) => (
               <Link
                 key={section}
                 href={"#" + section.toLowerCase()}
-                sx={{ margin: 2, color: "white", display: "block" }}
+                sx={{
+                  margin: 2,
+                  color: "white",
+                  display: "block",
+                  textDecoration: "none",
+                }}
               >
                 {section}
               </Link>
             ))}
-            <Button variant="outlined" size="small">
-              <Link href="#contact">Contact</Link>
+            <Button
+              sx={{ height: "2.75rem", borderWidth: "2px" }}
+              variant="outlined"
+              size="small"
+            >
+              <Link
+                sx={{
+                  textTransform: "none",
+                  fontWeight: "bold",
+                  textDecoration: "none",
+                }}
+                href="#contact"
+              >
+                Lets Connect
+              </Link>
             </Button>
           </Box>
         </Toolbar>

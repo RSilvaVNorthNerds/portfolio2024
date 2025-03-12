@@ -1,6 +1,8 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import SkillCard from "./components/SkillCard";
 import { useEffect, useState } from "react";
+import CoreSkillsStyles from "./CoreSkillsStyles";
+import environment from "../../../environment";
 
 type GetAllSkillsResponse = {
   name: string;
@@ -23,7 +25,7 @@ export default function CoreSkills() {
   const [skills, setSkills] = useState<GetAllSkillsResponse[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3003/get-skills", {
+    fetch(`${environment.API_URL}/get-skills`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -45,17 +47,18 @@ export default function CoreSkills() {
       id="skills"
       sx={{
         width: "100%",
-        backgroundColor: "darkgrey",
+        maxWidth: "1200px",
+        backgroundColor: "#111A25",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: "4rem 1rem",
+        padding: "4rem 3rem",
         position: "relative",
       }}
     >
       <Typography
-        variant="h3"
+        variant="h4"
         sx={{
           width: "fit-content",
           zIndex: 1,
@@ -64,7 +67,7 @@ export default function CoreSkills() {
             display: "block",
             width: "55%",
             height: "20px",
-            backgroundColor: "#2E409A",
+            backgroundColor: "#508D9F",
             transform: "translateX(100%) translateY(-110%)",
             position: "relative",
             zIndex: -1,
@@ -73,17 +76,16 @@ export default function CoreSkills() {
       >
         Skills
       </Typography>
-      <Grid
-        container
+      <Box
         sx={{
           width: "100%",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <Grid>
+        <Box sx={CoreSkillsStyles.CoreSkillsCategory}>
           <Typography variant="h6">Languages:</Typography>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={CoreSkillsStyles.CoreSkillsRow}>
             {getFilteredSkills(["language"]).map((skill) => (
               <SkillCard
                 name={skill.name}
@@ -92,10 +94,10 @@ export default function CoreSkills() {
               />
             ))}
           </Box>
-        </Grid>
-        <Grid>
+        </Box>
+        <Box sx={CoreSkillsStyles.CoreSkillsCategory}>
           <Typography variant="h6">Libraries & Frameworks:</Typography>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={CoreSkillsStyles.CoreSkillsRow}>
             {getFilteredSkills(["framework", "library"]).map((skill) => (
               <SkillCard
                 name={skill.name}
@@ -104,10 +106,10 @@ export default function CoreSkills() {
               />
             ))}
           </Box>
-        </Grid>
-        <Grid>
+        </Box>
+        <Box sx={CoreSkillsStyles.CoreSkillsCategory}>
           <Typography variant="h6">Dev Tools & Cloud:</Typography>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={CoreSkillsStyles.CoreSkillsRow}>
             {getFilteredSkills(["dev-tool", "cloud-tool"]).map((skill) => (
               <SkillCard
                 name={skill.name}
@@ -116,10 +118,10 @@ export default function CoreSkills() {
               />
             ))}
           </Box>
-        </Grid>
-        <Grid>
+        </Box>
+        <Box sx={CoreSkillsStyles.CoreSkillsCategory}>
           <Typography variant="h6">Testing Frameworks & Tools</Typography>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={CoreSkillsStyles.CoreSkillsRow}>
             {getFilteredSkills(["testing"]).map((skill) => (
               <SkillCard
                 name={skill.name}
@@ -128,10 +130,10 @@ export default function CoreSkills() {
               />
             ))}
           </Box>
-        </Grid>
-        <Grid>
+        </Box>
+        <Box sx={CoreSkillsStyles.CoreSkillsCategory}>
           <Typography variant="h6">UI/UX Design</Typography>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={CoreSkillsStyles.CoreSkillsRow}>
             {getFilteredSkills(["design"]).map((skill) => (
               <SkillCard
                 name={skill.name}
@@ -140,10 +142,10 @@ export default function CoreSkills() {
               />
             ))}
           </Box>
-        </Grid>
-        <Grid>
+        </Box>
+        <Box sx={CoreSkillsStyles.CoreSkillsCategory}>
           <Typography variant="h6">Databases</Typography>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={CoreSkillsStyles.CoreSkillsRow}>
             {getFilteredSkills(["database"]).map((skill) => (
               <SkillCard
                 name={skill.name}
@@ -152,8 +154,8 @@ export default function CoreSkills() {
               />
             ))}
           </Box>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Box>
   );
 }

@@ -1,69 +1,99 @@
-import { Box, Button, Link, Typography } from "@mui/material";
+import { useState } from "react";
 
-interface ProjectCardProps {
+import { Box, Button, Typography } from "@mui/material";
+
+import ProjectModal from "./ProjectModal";
+import projectShowcaseStyles from "../projectShowcaseStyles";
+
+export interface ProjectCardProps {
   name: string;
   description?: string;
   url: string;
   githubLink?: string;
+  thumbnailUrl?: string;
+  techStack?: string[];
 }
 
 export default function ProjectCard({
   name,
   description,
   githubLink,
+  url,
+  thumbnailUrl,
+  techStack,
 }: ProjectCardProps) {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handleModalOnClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const thumbnailImage = thumbnailUrl ? thumbnailUrl : "images/dev.jpg";
+
   return (
     <Box
       sx={{
-        width: "300px",
-        minHeight: "350px",
-        borderRadius: "20px",
-        margin: "0px 10px",
-        display: "flex",
-        flexDirection: "column",
-        boxShadow: "0px 0px 10px 0px #141414",
+        margin: "2rem 0rem",
+        "&:hover": {
+          transform: "scale(1.01)",
+          transition: "all 0.25s ease",
+        },
       }}
     >
-      <img
-        style={{ width: "100%", borderRadius: "20px 20px 0px 0px" }}
-        src="images/dev.jpg"
-        alt="Project Preview"
-      />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          padding: "0.75em",
-          flex: 1,
-        }}
-      >
-        <Typography variant="h6">{name}</Typography>
-        <Typography variant="body2">{description}</Typography>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-            marginTop: "auto",
-          }}
-        >
-          <Link
-            href={githubLink}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+      <Box sx={projectShowcaseStyles.projectCardWrapper}>
+        <img
+          style={projectShowcaseStyles.ProjectCardImage as React.CSSProperties}
+          src={thumbnailImage}
+          alt="Project Preview"
+        />
+        <Box sx={projectShowcaseStyles.projectCardContent}>
+          <Typography variant="h6" sx={{ fontWeight: "600" }}>
+            {name}
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={projectShowcaseStyles.projectCardDescription}
           >
-            <img
-              style={{ width: "2rem" }}
-              src="images/github-logo.png"
-              alt="Github Link"
-            />
-          </Link>
-          <Button variant="outlined">Learn More</Button>
+            {description}
+          </Typography>
+          <Box sx={projectShowcaseStyles.projectCardActionButtons}>
+            {/* <Link
+              href={githubLink}
+              target="_blank"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                style={{ width: "2rem" }}
+                src="images/github-logo.png"
+                alt="Github Link"
+              />
+            </Link> */}
+            <Button variant="outlined" onClick={handleModalOpen}>
+              Learn More
+            </Button>
+          </Box>
         </Box>
       </Box>
+      <ProjectModal
+        isOpen={isModalOpen}
+        onClose={handleModalOnClose}
+        projectInfo={{
+          name,
+          description,
+          url,
+          githubLink,
+          thumbnailUrl,
+          techStack,
+        }}
+      />
     </Box>
   );
 }

@@ -1,11 +1,13 @@
 import { Box, Button, Link, Typography } from "@mui/material";
 import { convert } from "html-to-text";
+import PublicationsStyles from "../PublicationsStyles";
 
 interface PublicationCardProps {
   title: string;
   description: string;
   url: string;
   author: string;
+  imgUrl?: string;
 }
 
 export default function PublicationCard({
@@ -13,28 +15,23 @@ export default function PublicationCard({
   description,
   url,
   author,
+  imgUrl,
 }: PublicationCardProps) {
   // TODO: Move all this description processing to BE
-  const descriptonPreview = description?.match(/<p>(.*?)<\/p>/)?.[1];
+  const descriptonPreview = description
+    ?.match(/<p>(.*?)<\/p>/)?.[1]
+    .substring(0, 225);
 
   const parsedDescription = convert(descriptonPreview ?? "") + "..";
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        maxHeight: "300px",
-        borderRadius: "20px",
-        margin: "10px 0px",
-        display: "flex",
-        boxShadow: "0px 0px 10px 0px #141414",
-      }}
-    >
-      <img
-        style={{ width: "20rem", borderRadius: "20px 0px 0px 20px" }}
-        src="images/dev.jpg"
+    <Box sx={PublicationsStyles.publicationsCardContainer}>
+      <Box
+        component="img"
+        sx={PublicationsStyles.publicationsCardImage}
+        src={imgUrl ?? "images/dev.jpg"}
         alt="Project Preview"
-      />
+      ></Box>
       <Box
         sx={{
           display: "flex",
@@ -72,6 +69,8 @@ export default function PublicationCard({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              marginTop: "1rem",
+              textDecoration: "none",
             }}
           >
             <Button variant="outlined">Check out the Full Article</Button>

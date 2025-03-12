@@ -1,6 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import PublicationCard from "./components/PublicationCard";
+import { getArticleImageURL } from "./helpers";
+import environment from "../../../environment";
 
 interface GetAllPublicationsResponse {
   id: string;
@@ -15,26 +17,48 @@ const Publications = () => {
   >([]);
 
   useEffect(() => {
-    fetch("http://localhost:3003/get-publications")
+    fetch(`${environment.API_URL}/get-publications`)
       .then((raw) => raw.json())
       .then((data) => setPublications(data));
   }, []);
 
   return (
-    <Box id="publications" sx={{ maxWidth: "1200px", margin: "5em 0em" }}>
+    <Box
+      id="publications"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        maxWidth: "1200px",
+        margin: "5em 0em",
+        padding: "0rem 3rem",
+
+        "@media (max-width: 768px)": {
+          alignItems: "center",
+        },
+      }}
+    >
       <Typography
         variant="h4"
         sx={{
           width: "fit-content",
+          position: "relative",
+
           "::after": {
             content: '""',
             display: "block",
             width: "55%",
             height: "20px",
-            backgroundColor: "#2E409A",
+            backgroundColor: "#508D9F",
             transform: "translateX(100%) translateY(-110%)",
-            position: "relative",
+            position: "absolute",
             zIndex: -1,
+          },
+
+          "@media (max-width: 768px)": {
+            textAlign: "center",
+            "::after": {
+              width: "55%",
+            },
           },
         }}
       >

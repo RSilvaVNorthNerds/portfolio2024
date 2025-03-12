@@ -26,8 +26,8 @@ function ResumeViewerModal({ isOpen, onClose }: ResumeViewerModalProps) {
         <Close
           sx={{
             position: "absolute",
-            top: "5px",
-            right: "5px",
+            top: "10px",
+            right: "10px",
             cursor: "pointer",
           }}
           onClick={onClose}
@@ -36,6 +36,7 @@ function ResumeViewerModal({ isOpen, onClose }: ResumeViewerModalProps) {
         <iframe
           width="100%"
           height="800px"
+          style={{ overflow: "auto", maxHeight: "80vh" }}
           src="assets/Rafael-Silva-Vergara-Resume.pdf"
         ></iframe>
       </Box>
