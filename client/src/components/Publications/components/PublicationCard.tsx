@@ -7,7 +7,6 @@ interface PublicationCardProps {
   description: string;
   url: string;
   author: string;
-  imgUrl?: string;
 }
 
 export default function PublicationCard({
@@ -15,7 +14,6 @@ export default function PublicationCard({
   description,
   url,
   author,
-  imgUrl,
 }: PublicationCardProps) {
   // TODO: Move all this description processing to BE
   const descriptonPreview = description
@@ -23,6 +21,8 @@ export default function PublicationCard({
     .substring(0, 225);
 
   const parsedDescription = convert(descriptonPreview ?? "") + "..";
+
+  const imgUrl = description?.match(/src="([^"]*)"/)?.[1];
 
   return (
     <Box sx={PublicationsStyles.publicationsCardContainer}>

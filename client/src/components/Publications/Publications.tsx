@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import PublicationCard from "./components/PublicationCard";
-import { getArticleImageURL } from "./helpers";
 import environment from "../../../environment";
 
 interface GetAllPublicationsResponse {
@@ -65,16 +64,16 @@ const Publications = () => {
         Latest Publications
       </Typography>
       <Box>
-        {publications.map((publication, index) => (
-          <PublicationCard
-            key={index}
-            title={publication.title}
-            description={publication.content}
-            url={publication.id}
-            author={publication.author}
-            imgUrl={getArticleImageURL(publication.content)}
-          />
-        ))}
+        {publications &&
+          publications.map((publication, index) => (
+            <PublicationCard
+              key={index}
+              title={publication.title}
+              description={publication["content:encoded"][0]}
+              url={publication.link}
+              author={publication["dc:creator"]}
+            />
+          ))}
       </Box>
     </Box>
   );
