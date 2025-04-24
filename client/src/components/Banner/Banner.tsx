@@ -60,8 +60,8 @@ const Banner = () => {
               }}
             >
               <Button
-                href="../../assets/Rafael-Silva-Vergara-Resume.docx"
-                download="Rafael-Silva-Vergara-Resume.docx"
+                href="../../assets/Rafael-Silva-Vergara-Resume.pdf"
+                download="Rafael-Silva-Vergara-Resume.pdf"
                 variant="outlined"
                 size="large"
                 sx={{ textAlign: "start" }}
