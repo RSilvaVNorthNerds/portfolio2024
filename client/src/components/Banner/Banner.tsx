@@ -64,28 +64,17 @@ const Banner = () => {
                 download="Rafael-Silva-Vergara-Resume.pdf"
                 variant="outlined"
                 size="large"
-                sx={{ textAlign: "start" }}
               >
                 <Download sx={{ marginRight: "10px", borderWidth: "2px" }} />
-                Download Resume
+                <Typography variant="body1">Download Resume</Typography>
               </Button>
-              <Typography
-                variant="h2"
-                sx={{
-                  color: "#fff",
-                  "@media (max-width:768px)": {
-                    transform: "rotate(90deg)",
-                  },
-                }}
-              ></Typography>
               <Button
                 variant="outlined"
                 size="large"
-                sx={{ textAlign: "start" }}
                 onClick={handleModalOpen}
               >
                 <Visibility sx={{ marginRight: "10px", borderWidth: "2px" }} />
-                View Resume
+                <Typography variant="body1">View Resume</Typography>
               </Button>
             </Box>
           </Box>

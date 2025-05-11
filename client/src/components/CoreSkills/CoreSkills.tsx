@@ -31,9 +31,18 @@ export default function CoreSkills() {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         setSkills(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching skills:', error);
+        setSkills([]);
       });
   }, []);
 

@@ -23,9 +23,18 @@ export default function ProjectShowcase() {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
         setProjects(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching projects:', error);
+        setProjects([]);
       });
   }, []);
 
@@ -35,7 +44,7 @@ export default function ProjectShowcase() {
         Latest Projects
       </Typography>
       <Grid container sx={projectShowcaseStyles.projectContainer}>
-        {projects.map((project) => (
+        {projects && projects.map((project) => (
           <ProjectCard
             name={project.name}
             description={project.description ?? ""}
