@@ -42,7 +42,6 @@ export default function CoreSkills() {
       })
       .catch((error) => {
         console.error('Error fetching skills:', error);
-        setSkills([]);
       });
   }, []);
 

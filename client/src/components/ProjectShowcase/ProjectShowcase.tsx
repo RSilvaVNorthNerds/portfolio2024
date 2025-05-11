@@ -34,7 +34,6 @@ export default function ProjectShowcase() {
       })
       .catch((error) => {
         console.error('Error fetching projects:', error);
-        setProjects([]);
       });
   }, []);
 
